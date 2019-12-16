@@ -1,27 +1,35 @@
-import * as mongoose from 'mongoose';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-export const ProductSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  owner: { type: String, required: true },
-  category: { type: String, required: true },
-  path: { type: String, required: true },
-  rate: { type: Number, required: true },
-  nbrComments: { type: Number, required: true },
-  nbrRatings: { type: Number, required: true },
+@Entity()
+export class Product {
 
-});
+  @PrimaryGeneratedColumn()
+  id: string;
 
-export class Product implements mongoose.Document {
-  id: number;
-  name: string;
-  owner: string;
-  category: string;
-  description: string;
-  nbrComments: number;
-  nbrRatings: number;
-  rate: number;
-  path: string;
+  @Column({ length: 25 })
+  name:string;
+
+  @Column()
+  description:string;
+
+  @Column()
+  owner:string;
+
+  @Column()
+  category:string;
+
+  @Column()
+  path:string;
+
+  @Column()
+  rate:number;
+
+  @Column()
+  nbrComments:number;
+
+  @Column()
+  nbrRatings:number;
+
   moyenne(){
     this.rate=this.nbrRatings/5;
   }
