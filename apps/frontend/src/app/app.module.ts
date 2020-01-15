@@ -6,10 +6,13 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductOwnerRegisterComponent } from './register/product-owner-register/product-owner-register.component';
+import { TesterRegisterComponent } from './register/tester-register/tester-register.component';
+import { RegisterComponent } from './register/register/register.component'
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent,],
+  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent,],
   imports: [
     BrowserModule,
     HttpClientModule,

@@ -1,0 +1,33 @@
+.prod-own-register {
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+.prod-own-register h1 {
+  font-weight: bolder;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+.prod-own-register form {
+  text-align: left !important;
+}
+.prod-own-register form select {
+  display: inline-block;
+  margin-left: 5px;
+}
+.prod-own-register form .form-control {
+  border-radius: 20px;
+}
+.prod-own-register form button {
+  font-size: 1.1em;
+  padding: 10px 20px;
+}
+@media (max-width: 1200px) {
+  .prod-own-register {
+    width: fit-content;
+    top: 50px !important;
+  }
+  .prod-own-register h1 {
+    font-size: 2.3em !important;
+  }
+}

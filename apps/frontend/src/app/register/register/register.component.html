@@ -1,0 +1,23 @@
+<div class="registerPage">
+  <div class="container">
+    <div class="row">
+      <div class="left col-4 " [class.animateLeft]="!type">
+        <div class="container-left">
+          <h1 class="text-light">Are you  <br>{{this.typeString}}?</h1>
+          <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType('coworker')">Register as {{this.typeString}} </button>
+        </div>
+      </div>
+
+      <div class="left-media " [class.animateLeft]="!type">
+        <h1 class="text-light">Are you  <br>{{this.typeString}}?</h1>
+        <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType('coworker')">Register as {{this.typeString}} </button>
+      </div>
+
+      <div class="right col-8"  [class.animateRight]="!type">
+        <myorg-tester-register *ngIf="this.type==true" ></myorg-tester-register>
+        <myorg-product-owner-register *ngIf="this.type==false" ></myorg-product-owner-register>
+      </div>
+    </div>
+  </div>
+
+</div>

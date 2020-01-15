@@ -1,0 +1,72 @@
+
+
+.registerPage .animateLeft {
+  right: 0 !important;
+}
+.registerPage .animateRight {
+  left: 0 !important;
+}
+.registerPage .left {
+  transition: right 2s;
+  position: absolute;
+  right: 70%;
+  z-index: 3000;
+  display: inline-block;
+  text-align: center;
+  width: 30%;
+  height: 100vh;
+  background-image: linear-gradient(253deg, #198083 0, #24B5BA 100%);
+}
+.registerPage .left .container-left {
+  margin: auto;
+  position: relative;
+  top: 35%;
+}
+.registerPage .left .container-left h1 {
+  font-weight: bolder;
+  font-size: 3.5em;
+}
+.registerPage .left .container-left button {
+  font-size: 1.1em;
+  margin-top: 15px;
+  padding: 20px 50px;
+}
+.registerPage .left-media {
+  display: none;
+}
+.registerPage .right {
+  transition: left 2s;
+  position: absolute;
+  margin-top: 10%;
+  left: 30%;
+  text-align: center;
+  display: inline-block;
+  width: 70%;
+}
+.registerPage .right .animateForm {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 1199.98px) {
+  .left {
+    display: none !important;
+  }
+  .right {
+    left: unset !important;
+    margin: auto !important;
+    position: relative !important;
+  }
+  .left-media {
+    display: block !important;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(253deg, #198083 0, #24B5BA 100%);
+  }
+  .left-media h1 {
+    font-weight: bolder;
+    font-size: 2em;
+    margin-top: 20px;
+  }
+}
