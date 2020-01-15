@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'myorg-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
