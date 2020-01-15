@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent,],
@@ -13,6 +14,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' })
   ],
   providers: [],
