@@ -1,0 +1,90 @@
+.loginPage {
+  position: relative;
+}
+.loginPage .animateLeft {
+  right: 0 !important;
+}
+.loginPage .animateRight {
+  left: 0 !important;
+}
+.loginPage .left {
+  transition: right 2s;
+  position: fixed;
+  right: 70%;
+  z-index: 3000;
+  display: inline-block;
+  text-align: center;
+  width: 30%;
+  height: 100vh;
+  background-image: linear-gradient(253deg, #198083 0, #24B5BA 100%);
+}
+.loginPage .left .container {
+  position: absolute;
+  top: 35%;
+}
+.loginPage .left .container h1 {
+  font-weight: bolder;
+  font-size: 3.5em;
+}
+.loginPage .left .container button {
+  font-size: 1.1em;
+  margin-top: 15px;
+  padding: 20px 50px;
+  background-color: lightgray;
+}
+.loginPage .left-media {
+  display: none;
+}
+.loginPage .right {
+  transition: left 2s;
+  position: fixed;
+  left: 30%;
+  display: inline-block;
+  width: 70%;
+  height: 70vh;
+}
+.loginPage .right .tester, .loginPage .right .productOwner {
+  width: 38%;
+  margin: auto;
+  position: relative;
+  top: 50%;
+}
+.loginPage .right .tester h1, .loginPage .right .productOwner h1 {
+  font-weight: bolder;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+.loginPage .right .tester .form-control, .loginPage .right .productOwner .form-control {
+  border-radius: 20px;
+}
+@media (max-width: 1200px) {
+  .left {
+    display: none !important;
+  }
+  .right {
+    left: unset !important;
+    margin: auto !important;
+    position: relative !important;
+    display: block !important;
+  }
+  .left-media {
+    display: block !important;
+    height: 200px;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(253deg, #198083 0, #24B5BA 100%);
+  }
+  .left-media h1 {
+    font-weight: bolder;
+    font-size: 2em;
+    padding-top: 20px;
+  }
+  .tester, .productOwner {
+    width: fit-content !important;
+    top: 50px !important;
+    text-align: center;
+  }
+  .tester h1, .productOwner h1 {
+    font-size: 2.3em !important;
+  }
+}
