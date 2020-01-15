@@ -12,9 +12,9 @@ export class Product {
   nbrRatings: number;
   rate: number;
   path: string;
-  moyenne(){
-    this.rate=this.nbrRatings/5;
-  }
+  // moyenne(){
+  //   this.rate=this.nbrRatings/5;
+  // }
 }
 
 abstract class User {
