@@ -1,0 +1,40 @@
+.tester-register {
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+.tester-register h1 {
+  font-weight: bolder;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+.tester-register form {
+  text-align: left !important;
+}
+.tester-register form select {
+  display: inline-block;
+  margin-left: 5px;
+}
+.tester-register form .form-control {
+  border-radius: 20px;
+}
+.tester-register form button {
+  font-size: 1.1em;
+  padding: 10px 20px;
+}
+.tester-register .errorMsg {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.tester-register .errorMsg p {
+  padding: 5px;
+}
+@media (max-width: 1200px) {
+  .tester-register {
+    width: fit-content;
+    top: 50px !important;
+  }
+  .tester-register h1 {
+    font-size: 2.3em !important;
+  }
+}

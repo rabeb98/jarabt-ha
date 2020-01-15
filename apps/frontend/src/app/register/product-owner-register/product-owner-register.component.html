@@ -1,0 +1,69 @@
+<div class="prod-own-register align-middle">
+  <h1 class="text-dark" >Register as a Product Owner!</h1>
+  <form #f="ngForm" (ngSubmit)="onSignup(f)">
+
+    <div class="form-row">
+
+      <div class="col-md-6 mb-3">
+        <input type="text" class="form-control rounded-pill" ngModel name="OrgName" placeholder="Organisation name"  required>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <input type="text" class="form-control" ngModel name="representative" placeholder="Representative" required>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <input type="text" class="form-control" ngModel name="post" placeholder="Post" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <input type="email" class="form-control"  ngModel name="email" placeholder="Email" required>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="col-md-3 mb-3">
+        <input type="text" class="form-control" ngModel name="phone" placeholder="Phone" required>
+      </div>
+
+
+      <div class="col-md-6 mb-3">
+        <input type="text" class="form-control" ngModel name="tax" placeholder="tax registration number" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <input type="text" class="form-control" ngModel name="Activity_type" placeholder="Activity Type" required>
+      </div>
+
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <input type="password" class="form-control"  ngModel name="password" placeholder="Choose a password"  required>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <input type="password" class="form-control" ngModel name="passwordVerif" placeholder="Comfirm the password" required>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" ngModel name="terms" type="checkbox" value="" id="invalidCheck2" required>
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to terms and conditions
+        </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <button class="btn btn-secondary  rounded-pill" type="submit" [disabled]="!f.form.valid" >Register</button>
+      </div>
+      <div class="col-md-6 col-sm-12">You already have an account? <a routerLink="LoginComponent">Login here</a></div>
+    </div>
+  </form>
+</div>

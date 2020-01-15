@@ -7,17 +7,18 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { RatingComponent } from './rating/rating.component'
-import {StarRatingModule} from 'angular-star-rating';
+import { ProductOwnerRegisterComponent } from './register/product-owner-register/product-owner-register.component';
+import { TesterRegisterComponent } from './register/tester-register/tester-register.component';
+import { RegisterComponent } from './register/register/register.component'
+
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, RatingComponent,],
+  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent,],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     NgbModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabled' }),
-    StarRatingModule.forRoot() ,
+    RouterModule.forRoot([], { initialNavigation: 'enabled' })
   ],
   providers: [],
   bootstrap: [AppComponent]
