@@ -17,20 +17,12 @@ export class Product {
   // }
 }
 
-abstract class User {
-  id: number;
+export class User {
+  uid: string;
   email: string;
-  mdp: string;
-  numb: number;
-  auth(){
+  displayName: string;
 
-  }
-  register(){
 
-  }
-  editprofile(){
-
-  }
 }
 
 export class Tester extends User{
@@ -39,31 +31,11 @@ export class Tester extends User{
   age: number;
   sexe: string;
   userName: string;
-  path: string;
-  addComment(){
 
-  }
-  rate(){
-
-  }
 }
 
-export class ProductOwner extends User{
-  orgNAme: string;
-  sector: string;
-  path: string;
-  addProduct(){
+export class Owner extends User {
+  company: string;
+  category: string;
 
-  }
-  deleteProduct(){
-
-  }
-  editProduct(){
-
-  }
-}
-
-export class Comment {
-  productId: number;
-  testerId: number;
 }

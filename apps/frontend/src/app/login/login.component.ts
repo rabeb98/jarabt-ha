@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import {LoginService} from '../services/login.service';
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   type = true;
   typeString = 'a Product Owner';
 
-  constructor(
+  constructor(public authService: AuthService
     // private loginService: LoginService
   ) {
   }

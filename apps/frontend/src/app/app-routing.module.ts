@@ -7,6 +7,7 @@ import {RegisterComponent} from './register/register/register.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import {CategoryComponent} from './category/category.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path: 'products', component: ProductsComponent, },
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent,},
   {path: 'register', component: RegisterComponent,},
   {path: 'login', component: LoginComponent,},
-  {path: 'dashboard', component: DashboardComponent,},
+  {path: 'dashboard', component: DashboardComponent,canActivate:[AuthGuard]},
 
 ];
 

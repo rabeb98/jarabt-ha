@@ -1,74 +1,40 @@
 <div class="tester-register ">
   <h1 class="text-dark" >Register as a Tester!</h1>
-  <form #f="ngForm" (ngSubmit)="onSignup(f)">
 
-    <div class="form-row">
+  <div class="form-row">
 
-      <div class="col-md-6 mb-3">
-        <input type="text" class="form-control" ngModel name="FirstName" placeholder="First name"  required>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <input type="text" class="form-control" ngModel name="LastName" placeholder="Last name" required>
-      </div>
-
+    <div class="col-md-6 mb-3">
+        <input type="username" class="form-control" placeholder="userName" #userName required>
+    </div></div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
     </div>
-
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <label>Date of Birth:  </label>
-        <input type="date" class="form-control" ngModel name="DateBirth" required>
-      </div>
-      <div class="col-md-6 mb-3">
-        <label><br></label>
-        <input type="email" class="form-control" ngModel name="email" placeholder="Email" required>
-      </div>
-    </div>
-
-
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <input type="text" class="form-control" ngModel name="interest" placeholder="center of interest"  required>
-      </div>
-
-      <div class="col-md-3 mb-3">
-        <input type="tel" class="form-control" ngModel name="phone" placeholder="Phone" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <input type="text" class="form-control" ngModel name="profession" placeholder="Profession" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <input type="text" class="form-control" ngModel name="establishment"  placeholder="establishment" required>
-      </div>
-
-    </div>
-    <div class="form-row">
-      <div class="col-md-6 mb-3">
-        <input type="password" class="form-control" ngModel name="password" placeholder="Choose a password"  required>
-      </div>
-
-      <div class="col-md-6 mb-3">
-        <input type="password" class="form-control"  ngModel name="passwordVerif" placeholder="Comfirm the password" required>
-      </div>
-
-    </div>
-
-    <div class="form-group ">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-        <label class="form-check-label" for="invalidCheck2">
-          Agree to terms and conditions
-        </label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <button class="btn btn-secondary  rounded-pill" type="submit" [disabled]="!f.form.valid" >Register</button>
-      </div>
-      <div class="col-md-6 col-sm-12">You already have an account? <a routerLink="LoginComponent">Login here</a></div>
-    </div>
-  </form>
-  <div class="errorMsg bg-danger" *ngIf="this.error != ''">
-    <p class="text-light" >{{this.error}}</p>
   </div>
-</div>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+        <input type="password" class="form-control" placeholder="Password" #userPwd required>
+      </div>
+  </div>
+      <div class="form-row">
+        <input type="button" style="background-color:#6ee7ff" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+      </div>
+
+      <div class="form-row">
+        <span class="or"><span class="orInner">Or</span></span>
+<br>
+
+      <!-- Continue with Google -->
+        <input type="image" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" (click)="authService.GoogleAuth()" />
+
+
+      </div>
+
+
+
+  <div class="col-md-6 col-sm-12">You already have an account? <a routerLink="/login">Login here</a></div>
+    </div>
+
+
+

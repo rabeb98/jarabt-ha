@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/register.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'myorg-tester-register',
@@ -14,7 +15,7 @@ export class TesterRegisterComponent implements OnInit {
   ngOnInit() {
     // this.tester = new tester();
   }
-  constructor(private registerService: RegisterService) {
+  constructor(private registerService: RegisterService,public authService: AuthService) {
   }
   onSignup(form: any) {
     if (form.value.password !== form.value.passwordVerif) {

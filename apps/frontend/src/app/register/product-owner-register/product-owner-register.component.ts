@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/register.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'myorg-product-owner-register',
@@ -8,7 +9,7 @@ import {RegisterService} from '../../services/register.service';
 })
 export class ProductOwnerRegisterComponent implements OnInit {
   productOwner;
-  constructor(private registerService: RegisterService) {
+  constructor(private registerService: RegisterService,public authService: AuthService) {
     // this.productOwner = new productOwner();
   }
 
