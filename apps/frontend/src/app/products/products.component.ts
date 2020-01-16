@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Options } from 'ng5-slider';
+
 import {Product } from '@myorg/data';
 
 
@@ -16,12 +16,9 @@ export class ProductsComponent implements OnInit {
 
 
   ];
-  currentRate = 3.2;
+
   value= 3;
-  options: Options = {
-    floor: 0,
-    ceil: 5
-  };
+
   constructor() { }
 
   ngOnInit() {

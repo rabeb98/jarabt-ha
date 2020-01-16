@@ -13,7 +13,7 @@ import { RegisterComponent } from './register/register/register.component';
 import { ProductsComponent } from './products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavComponent } from './nav/nav.component';
-import { Ng5SliderModule } from 'ng5-slider';
+
 
 
 @NgModule({
@@ -24,7 +24,6 @@ import { Ng5SliderModule } from 'ng5-slider';
     FormsModule,
     NgbModule,
     AppRoutingModule,
-    Ng5SliderModule
 
   ],
   providers: [],
