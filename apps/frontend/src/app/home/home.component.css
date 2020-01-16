@@ -2,8 +2,19 @@
     position: center;
     margin-left: 50%;
 }
-img{width:100%;
-  min-width:100%;
-  max-width:100%;
-  position:absolute;
-  z-index:-10;}
+.bg{
+  min-height: 100%;
+  width: auto;
+  background-image: url("../../assets/Testing.jpg");
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.pos{
+  left: 25%;
+  right: 30%;
+}
+
