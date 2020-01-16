@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+
+
+
+  <div class="row" style="margin-top: 25px;">
+    <div class="col-md-3">
+      <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Name">
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" [(ngModel)]="productRate" placeholder="Rate">
+    </div>
+    <div class="col-md-3">
+      <input type="text" class="form-control" [(ngModel)]="productPath" placeholder="Path">
+    </div>
+    <div class="col-md-3">
+      <button type="button" (click)="CreateRecord()" [disabled]="!productName || !productRate || !productPath" class="btn btn-primary">+
+        Create product</button>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 25px;">
+    <div class="col-md-3">
+      <div class="card" style="width: 18rem;" *ngFor="let item of products">
+        <div class="card-body" >
+          <h5 class="card-title">{{item.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Rate: {{item.rate}} </h6>
+          <p class="card-text"><img [src]="item.path"></p>
+          <a href="#" class="card-link" (click)="RemoveRecord(item.id)">Delete</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
