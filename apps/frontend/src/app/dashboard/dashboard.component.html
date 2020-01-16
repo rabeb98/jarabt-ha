@@ -8,13 +8,20 @@
       <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Name">
     </div>
     <div class="col-md-3">
-      <input type="text" class="form-control" [(ngModel)]="productRate" placeholder="Rate">
+      <input type="text" class="form-control" [(ngModel)]="productCategory" placeholder="Category">
     </div>
     <div class="col-md-3">
       <input type="text" class="form-control" [(ngModel)]="productPath" placeholder="Path">
     </div>
+    <br>
     <div class="col-md-3">
-      <button type="button" (click)="CreateRecord()" [disabled]="!productName || !productRate || !productPath" class="btn btn-primary">+
+    <input type="text" class="form-control" [(ngModel)]="productOwner" placeholder="Owner">
+    </div>
+  <div class="col-md-3">
+    <input type="text" class="form-control" [(ngModel)]="productDescription" placeholder="Description">
+  </div>
+    <div class="col-md-3">
+      <button type="button" (click)="CreateRecord()" [disabled]="!productName || !productCategory || !productPath" class="btn btn-primary">+
         Create product</button>
     </div>
   </div>
@@ -23,7 +30,7 @@
       <div class="card" style="width: 18rem;" *ngFor="let item of products">
         <div class="card-body" >
           <h5 class="card-title">{{item.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Rate: {{item.rate}} </h6>
+          <h6 class="card-subtitle mb-2 text-muted">Category: {{item.rate}} </h6>
           <p class="card-text"><img [src]="item.path"></p>
           <a href="#" class="card-link" (click)="RemoveRecord(item.id)">Delete</a>
         </div>

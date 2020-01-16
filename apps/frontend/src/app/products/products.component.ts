@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {Product } from '@myorg/data';
+import { ProductsService } from '../services/products.service';
 
 
 @Component({
@@ -9,19 +10,28 @@ import {Product } from '@myorg/data';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  products: Product[] = [
-    { id: 11, name: 'Dr Nice', owner: ' ', category: ' ', description: ' ' , nbrComments: 0, nbrRatings: 0, rate: 0, path:'../../assets/Testing.jpg'  },
-    { id: 12, name: 'Narco' , owner: ' ', category: ' ', description: ' ' , nbrComments: 0, nbrRatings: 0, rate: 0, path:'../../assets/Testing.jpg'  },
-    { id: 13, name: 'Bombasto' , owner: ' ', category: ' ', description: ' ' , nbrComments: 0, nbrRatings: 0, rate: 0, path:'../../assets/Testing.jpg'  },
+  products: any;
 
-
-  ];
 
   value= 3;
 
-  constructor() { }
+  constructor(private crudService: ProductsService) { }
 
   ngOnInit() {
+    this.crudService.getProducts().subscribe(data => {
+
+      this.products = data.map(e => {
+        return {
+          id: e.payload.doc.id,
+          isEdit: false,
+          name: e.payload.doc.data()['name'],
+          rate: e.payload.doc.data()['rate'],
+          path: e.payload.doc.data()['path'],
+        };
+      })
+      console.log(this.products);
+
+    });
   }
 
 }
