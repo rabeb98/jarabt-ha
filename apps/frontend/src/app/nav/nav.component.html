@@ -7,9 +7,9 @@
   <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li ngbDropdown class="nav-item dropdown">
-        <a ngbDropdownToggle class="nav-link dropdown-toggle " href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+        <a ngbDropdownToggle class="nav-link dropdown-toggle "  id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
         <div ngbDropdownMenu class="dropdown-menu " aria-labelledby="dropdown01">
-          <a class="dropdown-item"  *ngFor="let x of Categories" >{{x}}</a>
+          <a class="dropdown-item"  *ngFor="let x of Categories" [routerLink]="['/products/',x] ">{{x}}</a>
           <!---- <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>-->

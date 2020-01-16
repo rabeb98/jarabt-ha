@@ -12,4 +12,6 @@ export class ProductsService extends TypeOrmCrudService<Product> {
   constructor (@InjectRepository(Product) repo) {
     super(repo)
   }
+
+
 }

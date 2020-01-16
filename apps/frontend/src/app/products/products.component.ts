@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Product } from '@myorg/data';
 import { ProductsService } from '../services/products.service';
-
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'myorg-products',
@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   constructor(private crudService: ProductsService) { }
 
   ngOnInit() {
+
     this.crudService.getProducts().subscribe(data => {
 
       this.products = data.map(e => {

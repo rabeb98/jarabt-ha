@@ -5,9 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
+
 export class NavComponent implements OnInit {
   title = 'testerrr';
-  Categories : string[] = ["categ1","categ2","categ3","categ4"];
+  Categories : string[] = ["informatique","telephonie","electromenager","gaming","bureautique","impresssion"];
   session=true;
   constructor() { }
 

@@ -8,8 +8,22 @@
       <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Name">
     </div>
     <div class="col-md-3">
-      <input type="text" class="form-control" [(ngModel)]="productCategory" placeholder="Category">
-    </div>
+
+
+    <label>
+      Category:
+      <span class="">
+        <select  [(ngModel)]="productCategory" class="custom-dropdown__select custom-dropdown__select--white">
+            <option value="informatique">INFORMATIQUE</option>
+            <option value="telephonie">TELEPHONIE</option>
+            <option value="electromenager">ELECTROMENAGER</option>
+            <option value="gaming">GAMING</option>
+            <option value="bureautique">BUREAUTIQUE</option>
+            <option value="impresssion">IMPRESSION</option>
+
+        </select>
+    </span>
+    </label></div>
     <div class="col-md-3">
       <input type="text" class="form-control" [(ngModel)]="productPath" placeholder="Path">
     </div>
@@ -30,7 +44,7 @@
       <div class="card" style="width: 18rem;" *ngFor="let item of products">
         <div class="card-body" >
           <h5 class="card-title">{{item.name}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Category: {{item.rate}} </h6>
+          <h6 class="card-subtitle mb-2 text-muted">Category: {{item.category}} </h6>
           <p class="card-text"><img [src]="item.path"></p>
           <a href="#" class="card-link" (click)="RemoveRecord(item.id)">Delete</a>
         </div>

@@ -17,6 +17,9 @@ export class ProductsService {
 
 
   deleteProduct(record_id) {
-    this.firestore.doc('products/' + record_id).delete().then(r => console.log("helllo"));
+    this.firestore.doc('products/' + record_id).delete();
   }
+  getProductsByCategory(category:string |any){
+  return this.firestore
+    .collection("products", ref => ref.where('category', '==', category)).snapshotChanges();}
 }
