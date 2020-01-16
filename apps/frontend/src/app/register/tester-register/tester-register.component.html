@@ -3,38 +3,40 @@
 
   <div class="form-row">
 
-    <div class="col-md-6 mb-3">
+    <div class="col-md-12 mb-3">
         <input type="username" class="form-control" placeholder="userName" #userName required>
     </div></div>
   <div class="form-row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-12 mb-3">
       <input type="email" class="form-control" placeholder="Email Address" #userEmail required>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-12 mb-3">
         <input type="password" class="form-control" placeholder="Password" #userPwd required>
       </div>
   </div>
       <div class="form-row">
-        <input type="button" style="background-color:#6ee7ff" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+        <div class="col-md-4 col-sm-10">
+          <input type="button" style="background-color:#6ee7ff" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
+
+        </div>
+        <div class="col-md-2 col-sm-8">
+          <span class="or"><span class="orInner">Or</span></span>
+        </div>
+        <div class="col-md-4 col-sm-10">
+
+
+          <!-- Continue with Google -->
+          <input type="image" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" (click)="authService.GoogleAuth()" />
+        </div>
       </div>
 
-      <div class="form-row">
-        <span class="or"><span class="orInner">Or</span></span>
-<br>
-
-      <!-- Continue with Google -->
-        <input type="image" src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" (click)="authService.GoogleAuth()" />
 
 
-      </div>
-
-
-
-  <div class="col-md-6 col-sm-12">You already have an account? <a routerLink="/login">Login here</a></div>
-    </div>
+  <div class="col-md-12 col-sm-12">You already have an account? <a routerLink="/login">Login here</a></div>
+</div>
 
 
 
