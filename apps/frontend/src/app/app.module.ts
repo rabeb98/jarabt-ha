@@ -13,17 +13,25 @@ import { RegisterComponent } from './register/register/register.component';
 import { ProductsComponent } from './products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavComponent } from './nav/nav.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent, ProductsComponent, NavComponent,],
+  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent, ProductsComponent, NavComponent, DashboardComponent,],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     NgbModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
 
   ],
   providers: [],
