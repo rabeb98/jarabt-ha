@@ -23,10 +23,11 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import {AuthService} from './services/auth.service';
 import { SearchComponent } from './search/search.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent, ProductsComponent, NavComponent, DashboardComponent, CategoryComponent, SearchComponent, ProductDetailsComponent],
+  declarations: [AppComponent, LoginComponent, HomeComponent, ProductOwnerRegisterComponent, TesterRegisterComponent, RegisterComponent, ProductsComponent, NavComponent, DashboardComponent, CategoryComponent, SearchComponent, ProductDetailsComponent, ProfileComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
