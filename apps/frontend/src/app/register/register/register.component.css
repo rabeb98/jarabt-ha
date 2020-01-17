@@ -9,6 +9,7 @@
 .registerPage .left {
   transition: right 2s;
   position: absolute;
+  position: fixed;
   right: 70%;
   z-index: 3000;
   display: inline-block;

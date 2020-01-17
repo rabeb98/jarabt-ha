@@ -1,7 +1,14 @@
 .prod-own-register {
   position: relative;
   width: 50%;
+  top: -5em;
   margin: auto;
+}
+.width{
+  max-width: 300px;
+}
+.width1{
+  max-width: 500px;
 }
 .prod-own-register h1 {
   font-weight: bolder;

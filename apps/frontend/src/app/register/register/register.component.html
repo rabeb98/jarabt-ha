@@ -1,4 +1,4 @@
-<div class="registerPage">
+<div class="registerPage ">
   <div class="container">
     <div class="row">
       <div class="left col-4 " [class.animateLeft]="!type">
@@ -13,7 +13,7 @@
         <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType('coworker')">Register as {{this.typeString}} </button>
       </div>
 
-      <div class="right col-8"  [class.animateRight]="!type">
+      <div class="right col-8 "  [class.animateRight]="!type">
         <myorg-tester-register *ngIf="this.type==true" ></myorg-tester-register>
         <myorg-product-owner-register *ngIf="this.type==false" ></myorg-product-owner-register>
       </div>

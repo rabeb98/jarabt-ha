@@ -1,7 +1,15 @@
 .tester-register {
   position: relative;
+  top: -5em;
   width: 50%;
   margin: auto;
+
+}
+.width{
+  max-width: 300px;
+}
+.width1{
+  max-width: 500px;
 }
 .tester-register h1 {
   font-weight: bolder;
