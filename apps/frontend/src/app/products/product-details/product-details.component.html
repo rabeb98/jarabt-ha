@@ -1,0 +1,17 @@
+<ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+  </span>
+</ng-template>
+<br>
+<br>
+<br>
+<br>
+<br>
+<img [src]="product.path" [ngStyle]="{'width':'30%'}">
+<span >{{product.name}}
+  <br>
+    <ngb-rating [(rate)]="product.rate" [starTemplate]="t"  max="5"></ngb-rating>
+<br>
+    <hr>
+    <pre>Rating: <b>{{product.rate}}</b></pre></span>

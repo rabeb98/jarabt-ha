@@ -3,18 +3,13 @@
 <!--<div class="col-md-3 col-sm-8"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button></div>-->
 <!--</div>-->
 <!--<div>-->
-<input type="text" (keydown)="search($event)" placeholder="search products..." class="input">
-
-<div *ngFor="let product of dataSource">
-  <h4>{{product?.name}}</h4>
+<input type="text" [(ngModel)] = "searchterm" (keydown) ="search($event)" id = "search" placeholder="Search by name">
+<div style="background-color: white">
+<div  *ngFor="let product of dataSource">
+  <h4 style="font-size:15px"><a [routerLink]="['/products/detail/',product?.id]"> {{product?.name}}</a></h4>
   <p>
     {{product?.rate}}
   </p>
 </div>
-
-<div *ngIf="dataSource?.length < 1">
-  <hr>
-  <p>
-    No results found :(
-  </p>
 </div>
+

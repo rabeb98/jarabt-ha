@@ -8,10 +8,12 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import {CategoryComponent} from './category/category.component';
 import { AuthGuard } from './guard/auth.guard';
+import {ProductDetailsComponent} from './products/product-details/product-details.component';
 
 const routes: Routes = [
   {path: 'products', component: ProductsComponent, },
   {path: 'products/:category', component: CategoryComponent, },
+  {path: 'products/detail/:id', component: ProductDetailsComponent, },
   {path: 'home', component: HomeComponent,},
   {path: 'home', component: HomeComponent,},
   {path: '', component: HomeComponent,},
