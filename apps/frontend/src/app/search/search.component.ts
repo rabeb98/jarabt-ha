@@ -9,8 +9,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
-
+  
   dataSource: any;
 
   startAt = new Subject()
