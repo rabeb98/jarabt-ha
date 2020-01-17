@@ -1,46 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<body class="bg">
 <div class="container">
 
 
 
   <div class="row" style="margin-top: 25px;">
-    <div class="col-md-3">
-      <input type="text" class="form-control" [(ngModel)]="productName" placeholder="Name">
+    <div class="col-md-1 col-sm-12 left">
+      here is the profile
     </div>
-    <div class="col-md-3">
-
-
-    <label>
-      Category:
-      <span class="">
-        <select  [(ngModel)]="productCategory" class="custom-dropdown__select custom-dropdown__select--white">
-            <option value="informatique">INFORMATIQUE</option>
-            <option value="telephonie">TELEPHONIE</option>
-            <option value="electromenager">ELECTROMENAGER</option>
-            <option value="gaming">GAMING</option>
-            <option value="bureautique">BUREAUTIQUE</option>
-            <option value="impresssion">IMPRESSION</option>
-
-        </select>
-    </span>
-    </label></div>
-    <div class="col-md-3">
-      <input type="text" class="form-control" [(ngModel)]="productPath" placeholder="Path">
-    </div>
-    <br>
-    <div class="col-md-3">
-    <input type="text" class="form-control" [(ngModel)]="productOwner" placeholder="Owner">
-    </div>
-  <div class="col-md-3">
-    <input type="text" class="form-control" [(ngModel)]="productDescription" placeholder="Description">
-  </div>
-    <div class="col-md-3">
-      <button type="button" (click)="CreateRecord()" [disabled]="!productName || !productCategory || !productPath" class="btn btn-primary">+
-        Create product</button>
-    </div>
-  </div>
-  <div class="row" style="margin-top: 25px;">
-    <div class="col-md-3">
+    <div class="col-md-9 col-sm-12 left">
       <div class="card" style="width: 18rem;" *ngFor="let item of products">
         <div class="card-body" >
           <h5 class="card-title">{{item.name}}</h5>
@@ -51,7 +19,49 @@
 
       </div>
     </div>
+
+
+  <div class="col-md-1 col-sm-12 rounded width">
+    <br>
+        <div >
+          <input type="text" class="form-control rounded-pill" [(ngModel)]="productName" placeholder="Name">
+        </div>
+        <br>
+        <div >
+          <input type="text" class="form-control rounded-pill" [(ngModel)]="productPath" placeholder="Path">
+        </div>
+        <br>
+        <div >
+          <input type="text" class="form-control rounded-pill" [(ngModel)]="productOwner" placeholder="Owner">
+        </div>
+        <br>
+        <div >
+          <input type="text" class="form-control rounded-pill" [(ngModel)]="productDescription" placeholder="Description">
+        </div>
+        <br>
+        <div >
+          <label>
+            Category:
+            <span >
+            <select  [(ngModel)]="productCategory" class="rounded-pill custom-dropdown__select custom-dropdown__select--white">
+            <option value="informatique">INFORMATIQUE</option>
+            <option value="telephonie">TELEPHONIE</option>
+            <option value="electromenager">ELECTROMENAGER</option>
+            <option value="gaming">GAMING</option>
+            <option value="bureautique">BUREAUTIQUE</option>
+            <option value="impresssion">IMPRESSION</option>
+
+            </select>
+          </span>
+          </label>
+        </div>
+        <br>
+        <div >
+          <button type="button" (click)="CreateRecord()" [disabled]="!productName || !productCategory || !productPath" class="btn color">+
+            Create product</button>
+        </div>
+    <br>
   </div>
-
-
 </div>
+</div>
+</body>

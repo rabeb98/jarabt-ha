@@ -1,6 +1,22 @@
 .custom-dropdown--large {
   font-size: 1.5em;
 }
+.left{float:left; width:33%;}
+.width{
+  min-width: 300px;
+  right: 0;
+  top: 20%;
+  position: absolute;
+  background-color: lightgray;
+}
+.color{
+  border-color: #198083;
+}
+.bg{
+  left: 0;
+  right: 0;
+
+}
 
 .custom-dropdown--small {
   font-size: .7em;
@@ -14,7 +30,7 @@
 
 .custom-dropdown__select--white {
   background-color: #fff;
-  color: #444;
+  color: #198083;
 }
 
 @supports (pointer-events: none) and
@@ -24,7 +40,7 @@
 
   .custom-dropdown {
     position: relative;
-    display: inline-block;
+    display: block;
     vertical-align: middle;
   }
 
