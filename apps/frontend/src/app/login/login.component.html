@@ -1,90 +1,101 @@
+
 <div class="loginPage">
-  <div class="left" [class.animateLeft]="!type">
-    <div class="container">
-      <h1 class="text-light">Are you  <br>{{this.typeString}}?</h1>
-      <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType()">Login as {{this.typeString}} </button>
+ <div class="left" [class.animateLeft]="!type">
+   <div class="container">
+    <h1 class="text-light">Are you  <br>{{this.typeString}}?</h1>
+     <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType()">Login as {{this.typeString}} </button>
     </div>
-  </div>
+</div>
 
   <div class="left-media" [class.animateLeft]="!type">
-    <div class="container">
+   <div class="container">-->
       <h1 class="text-light">Are you  <br>{{this.typeString}}?</h1>
-      <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType()">Login as {{this.typeString}} </button>
+     <button type="button" class="btn btn-lg btn-light rounded-pill" (click)="changeType()">Login as {{this.typeString}} </button>
     </div>
   </div>
 
-  <div class="right"  [class.animateRight]="!type">
+  <div class="right"  [class.animateRight]="!type" style="height: 30%;width:85%">
     <div class="tester" *ngIf="this.type==true">
-      <h1 class="text-dark">Login as a Tester</h1>
-      <div class="container">
-        <h1>Sign In Form</h1>
-        <div class="row">
-          <div class="col-md-6">
-            <form [formGroup]="signinForm" (ngSubmit)="signin()">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="email" formControlName="email"  class="form-control" placeholder="Email">
-                  </div>
-                  <p class="help-block" *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched">Please enter email.</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="password" formControlName="pass" class="form-control" placeholder="Password">
-                  </div>
-                  <p class="help-block" *ngIf="!signinForm.get('pass').valid && signinForm.get('pass').touched">Please enter passworld.</p>
-                </div>
-              </div>
-              <div class="row pull-right">
-                <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary"
-                          [disabled]="!signinForm.valid">Signin</button>
-                </div>
-              </div>
-            </form>
-          </div>
+   <h1 class="header">Login as Tester</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" formControlName="email" class="form-control">
         </div>
-      </div>
-    </div>
-
-    <div class="productOwner" *ngIf="this.type==false">
-      <h1 class="text-dark">Login as a Product Owner</h1>
-      <div class="container">
-        <h1>Sign In Form</h1>
-        <div class="row">
-          <div class="col-md-6">
-            <form [formGroup]="signinForm" (ngSubmit)="signin()">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="email" formControlName="email"  class="form-control" placeholder="Email">
-                  </div>
-                  <p class="help-block" *ngIf="!signinForm.get('email').valid && signinForm.get('email').touched">Please enter email.</p>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <input type="password" formControlName="pass" class="form-control" placeholder="Password">
-                  </div>
-                  <p class="help-block" *ngIf="!signinForm.get('pass').valid && signinForm.get('pass').touched">Please enter passworld.</p>
-                </div>
-              </div>
-              <div class="row pull-right">
-                <div class="col-md-12">
-                  <button type="submit" class="btn btn-primary"
-                          [disabled]="!signinForm.valid">Signin</button>
-                </div>
-              </div>
-            </form>
-          </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="password">
+          <label class="error">{{errorMessage}}</label>
         </div>
-      </div>
+        <button type="submit" (click)="tryLogin(loginForm.value)" class="btn btn-default">Login</button>
+      </form>
     </div>
-
   </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Login with Facebook</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Login with Google</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Login with Twitter</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <p>No account yet? <a href="/register">Create an account</a></p>
+    </div>
+  </div>
+</div></div></div>
 
 
-</div>
+   <div class="productOwner" *ngIf="this.type==false">
+      <h1 class="header">Login as Product Owner</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <form [formGroup]="loginForm">
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" formControlName="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password">
+                <label class="error">{{errorMessage}}</label>
+              </div>
+              <button type="submit" (click)="tryLogin(loginForm.value)" class="btn btn-default">Login</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-primary btn-block" (click)="tryFacebookLogin()">Login with Facebook</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-danger btn-block" (click)="tryGoogleLogin()">Login with Google</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <button type="button" class="btn btn-info btn-block" (click)="tryTwitterLogin()">Login with Twitter</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <p>No account yet? <a href="/register">Create an account</a></p>
+          </div>
+        </div>
+      </div>
+   </div></div>
+<!--</div>-->

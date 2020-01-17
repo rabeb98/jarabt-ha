@@ -17,12 +17,12 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
   onLogout(){
-    this.authService.logout();
+    this.authService.doLogout();
   }
   //Check use is logged in
   checkUserLoggedIn(){
     console.log(localStorage);
-    return !!localStorage.getItem('isLoggedIn');
+    return this.authService.isLoggedIn;
   }
 
 }

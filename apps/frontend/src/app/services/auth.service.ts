@@ -10,7 +10,6 @@ import * as firebase from 'firebase';
 })
 export class AuthService {
   userData: any;
-
   constructor(
     public afs: AngularFirestore,
     public afAuth: AngularFireAuth,
@@ -29,131 +28,92 @@ export class AuthService {
       }
     })
   }
-
-  signUp(email: string, password: string){
-    firebase.auth().createUserWithEmailAndPassword( email, password)
-      .then(
-        response => {
-          console.log("Successfull Sign up");
-        },
-        error => console.log(error)
-      )
-  }
-  signIn(email: string, password: string){
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(
-        response => {
-          this.router.navigate(['home']);
-          this.getCurrentUserToken();
-
-        },
-        error => console.log(error)
-      );
-  }
-  logout(){
-    firebase.auth().signOut();
-    localStorage.removeItem('isLoggedIn');
-  }
-  getCurrentUserToken(){
-    firebase.auth().currentUser.getIdToken()
-      .then(
-        (token: string) => {
-          localStorage.setItem('isLoggedIn', token);
-        }
-      )
-    localStorage.getItem('isLoggedIn');
-  }
-  isAuthenticated(){
-    return !!(localStorage.getItem('isLoggedIn'));
+  doFacebookLogin(){
+    return new Promise<any>((resolve, reject) => {
+      const provider = new firebase.auth.FacebookAuthProvider();
+      this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+    })
   }
 
-  // logout(){
-  //   firebase.auth().signOut();
-  //   localStorage.removeItem('isLoggedIn');
-  // }
-
-  SignIn(email, password) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+  doTwitterLogin(){
+    return new Promise<any>((resolve, reject) => {
+      const provider = new firebase.auth.TwitterAuthProvider();
+      this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+    })
   }
 
-  SignUp(email, password) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+  doGoogleLogin(){
+    return new Promise<any>((resolve, reject) => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      provider.addScope('profile');
+      provider.addScope('email');
+      this.afAuth.auth
+        .signInWithPopup(provider)
+        .then(res => {
+          resolve(res);
+        }, err => {
+          console.log(err);
+          reject(err);
+        })
+    })
   }
 
-  SendVerificationMail() {
-    return this.afAuth.auth.currentUser.sendEmailVerification()
-      .then(() => {
-        this.router.navigate(['verify-email-address']);
-      })
+  doRegister(value){
+    return new Promise<any>((resolve, reject) => {
+
+      firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+          this.router.navigate(['login']);
+        }, err => reject(err))
+    })
   }
 
-  ForgotPassword(passwordResetEmail) {
-    return this.afAuth.auth.sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email sent, check your inbox.');
-      }).catch((error) => {
-        window.alert(error)
-      })
+  doLogin(value){
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signInWithEmailAndPassword(value.email, value.password)
+        .then(res => {
+          resolve(res);
+        }, err => reject(err))
+    })
   }
+
+  doLogout(){
+    return new Promise((resolve, reject) => {
+      if(firebase.auth().currentUser){
+        this.afAuth.auth.signOut();
+        this.router.navigate(['home']);
+        resolve();
+      }
+      else{
+        reject();
+      }
+    });
+  }
+
+
+current(){
+    console.log( firebase.auth().currentUser);
+}
+
 
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null);
+      return (firebase.auth().currentUser !== null);
   }
 
-
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider());
-  }
-
-
-  AuthLogin(provider) {
-    return this.afAuth.auth.signInWithPopup(provider)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        })
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error)
-      })
-  }
-
-
-  SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-
-
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
-  }
-
-  SignOut() {
-    return this.afAuth.auth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
-    })
-  }
 
 }
