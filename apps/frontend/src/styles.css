@@ -20,3 +20,9 @@
   color: red;
 }
 
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+p.help-block{
+  color: red;
+}

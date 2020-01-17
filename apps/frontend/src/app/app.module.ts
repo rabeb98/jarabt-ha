@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductOwnerRegisterComponent } from './register/product-owner-register/product-owner-register.component';
@@ -37,6 +37,7 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    ReactiveFormsModule
 
   ],
   providers: [AuthService],

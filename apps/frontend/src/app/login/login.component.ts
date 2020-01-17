@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import {LoginService} from '../services/login.service';
 import { AuthService } from '../services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -12,29 +12,16 @@ export class LoginComponent implements OnInit {
   type = true;
   typeString = 'a Product Owner';
 
-  constructor(public authService: AuthService
-    // private loginService: LoginService
-  ) {
-  }
-
+  signinForm: FormGroup;
+  constructor(private authService: AuthService) { }
   ngOnInit() {
-    //this.router.navigate(['dashboard']);
+    this.signinForm = new FormGroup({
+      'email': new FormControl(null, Validators.required),
+      'pass': new FormControl(null, Validators.required),
+    });
   }
-
-  onSignin(form: any) {
-    // if (this.type) {
-    //   let body={
-    //     'email':form.value.email,
-    //     'password': form.value.password
-    //   }
-    //   this.loginService.coworkerLogin(body);
-    // } else if (!this.type) {
-    //   let body={
-    //     'email': form.value.email,
-    //     'password': form.value.password
-    //   }
-    //   this.loginService.organismLogin(body);
-    // }
+  signin(){
+    this.authService.signIn(this.signinForm.value.email, this.signinForm.value.pass);
   }
 
   changeType() {

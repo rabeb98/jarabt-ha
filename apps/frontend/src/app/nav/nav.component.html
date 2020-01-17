@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" xmlns="http://www.w3.org/1999/html">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,18 +24,23 @@
       </li>
 
     </ul>
-    <div class="formmm" id="formm">
+    <div class="formm" id="formm "*ngIf="!checkUserLoggedIn()">
       <form class="form-inline my-2 my-lg-0">
-        <div *ngIf="session==true">
-          <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']"type="submit">Sign in</button>
-          <button class="btn btn-outline-success my-2 my-sm-0"[routerLink]="['/register']" type="submit">Sign up</button>
-        </div>
-        <div *ngIf="session==false">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign out</button>
-        </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/login']"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Sign-in</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/register']"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Sign-up</button>
       </form>
     </div>
+    <div class="formm" *ngIf="checkUserLoggedIn()">
+      <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" [routerLink]="['/dashboard']"
+              routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >Dashboard</button> |
+      <button class="btn btn-outline-success my-2 my-sm-0"  (click)="onLogout()">Logout</button>
+      </form>
+    </div>
+
+
   </div>
 </nav>
 
-<main role="main" class="container">

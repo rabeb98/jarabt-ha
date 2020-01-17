@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/register.service';
 import { AuthService } from '../../services/auth.service';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'myorg-product-owner-register',
   templateUrl: './product-owner-register.component.html',
   styleUrls: ['./product-owner-register.component.css']
 })
 export class ProductOwnerRegisterComponent implements OnInit {
-  productOwner;
-  constructor(private registerService: RegisterService,public authService: AuthService) {
-    // this.productOwner = new productOwner();
+  type='owner';
+  signupForm: FormGroup;
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
-  onSignup(f) {
-    // this.productOwner.OrgName = f.value.OrgName;
-    // this.productOwner.representative = f.value.representative;
-    // this.productOwner.email = f.value.email;
-    // this.productOwner.post = f.value.post;
-    // this.productOwner.tax = f.value.tax;
-    // this.productOwner.phone = f.value.phone;
-    // this.productOwner.Activity_type = f.value.Activity_type;
-    this.registerService.registerOrganism(this.productOwner);
-  }
+
   ngOnInit() {
+    this.signupForm = new FormGroup({
+      'email': new FormControl(null, Validators.required),
+      'pass': new FormControl(null, Validators.required),
+
+    });}
+  signup(){
+    this.authService.signUp(this.signupForm.value.email, this.signupForm.value.pass);
+    this.router.navigate(['/login']);
   }
 
 }

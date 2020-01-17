@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {RegisterService} from '../../services/register.service';
 import { AuthService } from '../../services/auth.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'myorg-tester-register',
@@ -8,31 +10,22 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./tester-register.component.css']
 })
 export class TesterRegisterComponent implements OnInit {
+  type='tester';
+  signupForm: FormGroup;
+  constructor(private authService: AuthService,
+              private router: Router) {
+  }
 
-  tester;
-  error = '';
 
   ngOnInit() {
-    // this.tester = new tester();
-  }
-  constructor(private registerService: RegisterService,public authService: AuthService) {
-  }
-  onSignup(form: any) {
-    if (form.value.password !== form.value.passwordVerif) {
-      this.error = 'password doesn\'t match';
-      return;
-    }
-    console.log('tester register');
-    // this.tester.FirstName = form.value.FirstName;
-    // this.tester.LastName = form.value.LastName;
-    // this.tester.interest = form.value.interest;
-    // this.tester.DateBirth = form.value.DateBirth;
-    // this.tester.email = form.value.email;
-    // this.tester.establishment = form.value.establishment;
-    // this.tester.phone = form.value.phone;
-    // this.tester.profession = form.value.profession;
-    // this.tester.password = form.value.password;
-    this.registerService.registerCoworker(this.tester);
+    this.signupForm = new FormGroup({
+      'email': new FormControl(null, Validators.required),
+      'pass': new FormControl(null, Validators.required),
+
+    });}
+  signup(){
+    this.authService.signUp(this.signupForm.value.email, this.signupForm.value.pass);
+    this.router.navigate(['/login']);
   }
 
 }
