@@ -1,5 +1,8 @@
 body{
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #198083, #00c6ff);
+}
+.color{
+  border-color: #198083;
 }
 .emp-profile{
     padding: 3%;

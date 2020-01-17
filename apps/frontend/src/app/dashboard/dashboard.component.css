@@ -7,13 +7,21 @@
   right: 0;
   top: 20%;
   position: absolute;
+  position: fixed;
   background-color: lightgray;
 }
+.color{
+  border-color: #198083;
+}
+.top{
+  top: 30px;
+}
 .position{
-  min-width: 350px;
+  min-width: 380px;
   left: 0;
-  top: 20%;
+  top: 8%;
   position: absolute;
+  position: fixed;
   background-color: lightgray;
 }
 .color{
