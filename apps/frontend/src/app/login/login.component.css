@@ -7,6 +7,9 @@
 .loginPage .animateRight {
   left: 0 !important;
 }
+.width{
+  max-width: 200px;
+}
 .loginPage .left {
   transition: right 2s;
   position: fixed;
