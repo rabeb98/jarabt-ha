@@ -9,6 +9,13 @@
   position: absolute;
   background-color: lightgray;
 }
+.position{
+  min-width: 350px;
+  left: 0;
+  top: 20%;
+  position: absolute;
+  background-color: lightgray;
+}
 .color{
   border-color: #198083;
 }
