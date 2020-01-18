@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class ProductsService {
 
 products ;
-  constructor(private firestore: AngularFirestore,private db: AngularFireDatabase) {
+  constructor(private firestore: AngularFirestore,private db: AngularFireDatabase,private router:Router) {
 
   }
 
@@ -23,7 +24,8 @@ products ;
 
 
   deleteProduct(record_id) {
-    this.firestore.doc('products/' + record_id).delete();
+
+    this.firestore.doc('products/' + record_id).delete().then( (resolve) => {    this.router.navigate(['dashboard']);});
   }
   getProductsById(id:string |any){
     return this.firestore.doc('products/'+id).snapshotChanges();}
